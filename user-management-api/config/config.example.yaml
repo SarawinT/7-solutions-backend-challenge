@@ -1,0 +1,24 @@
+# Copy to config/config.yaml (gitignored) and fill in jwt.secret:
+#   cp config/config.example.yaml config/config.yaml
+#
+# Any key can be overridden by an environment variable: upper-case it and
+# replace "." with "_", e.g. jwt.secret -> JWT_SECRET, mongo.uri -> MONGO_URI.
+
+server:
+  http_port: 8080
+  grpc_port: 50051
+  grpc_reflection: true # enable gRPC server reflection (for grpcurl)
+
+log:
+  level: info # debug | info | warn | error
+
+mongo:
+  uri: mongodb://localhost:27017
+  database: user_management
+
+jwt:
+  # Required. HMAC-SHA256 signing key, at least 32 bytes.
+  # Generate one with: openssl rand -base64 48
+  secret: ""
+  issuer: user-management-api
+  ttl: 1h # Go duration: 30m, 1h, 24h, ...

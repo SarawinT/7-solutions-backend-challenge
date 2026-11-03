@@ -1,0 +1,7 @@
+/user-management-api/bin/
+/user-management-api/*.test
+/user-management-api/*.out
+/user-management-api/.env
+
+# Local config may contain secrets; commit config.example.yaml instead.
+/user-management-api/config/config.yaml

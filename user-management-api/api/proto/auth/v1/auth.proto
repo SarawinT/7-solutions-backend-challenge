@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package auth.v1;
+
+import "google/protobuf/timestamp.proto";
+import "user/v1/user.proto";
+
+option go_package = "github.com/SarawinT/user-management-api/gen/go/auth/v1;authv1";
+
+// AuthService handles registration and login. Its RPCs are public; every
+// other service requires "authorization: Bearer <access_token>" metadata.
+service AuthService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+message RegisterRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message RegisterResponse {
+  user.v1.User user = 1;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  // JWT signed with HS256.
+  string access_token = 1;
+  // Always "Bearer".
+  string token_type = 2;
+  google.protobuf.Timestamp expires_at = 3;
+  user.v1.User user = 4;
+}

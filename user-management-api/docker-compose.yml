@@ -1,0 +1,15 @@
+services:
+  mongo:
+    image: mongo:8.2 # 8.0 fails on Linux kernel >= 6.19 (SERVER-121912)
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mongo-data:

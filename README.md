@@ -6,8 +6,8 @@ This coding test has two parts.
 
 | Section | Focus | Submission Type |
 | --- | --- | --- |
-| User Management API | Build a Golang user management API with MongoDB and JWT authentication | Code implementation |
-| Lottery Search System | Design a real-world lottery ticket search solution with wildcard matching | Design proposal only (no code) |
+| User Management API | Build a Golang user management API with MongoDB and JWT authentication | Code implementation — [Solution](./user-management-api/) |
+| Lottery Search System | Design a real-world lottery ticket search solution with wildcard matching | Design proposal only (no code) — [Solution](./lottery-seach-system.md) |
 
 ## User Management API
 
